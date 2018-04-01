@@ -68,7 +68,7 @@ public class BrowserCount {
         Configuration conf = new Configuration();
 
         // clear existed output file
-        Path outputPath = new Path(args[2]);
+        Path outputPath = new Path(args[1]);
         FileSystem fileSystem = FileSystem.get(conf);
         if (fileSystem.exists(outputPath)) {
             fileSystem.delete(outputPath, true);
@@ -82,7 +82,7 @@ public class BrowserCount {
         job.setJarByClass(BrowserCount.class);
 
         // Set file input path
-        FileInputFormat.setInputPaths(job, new Path(args[1]));
+        FileInputFormat.setInputPaths(job, new Path(args[0]));
 
         // Set map parameters
         job.setMapperClass(MyMapper.class);
@@ -98,7 +98,7 @@ public class BrowserCount {
         job.setOutputValueClass(LongWritable.class);
 
         // Set file output path
-        FileOutputFormat.setOutputPath(job, new Path(args[2]));
+        FileOutputFormat.setOutputPath(job, new Path(args[1]));
 
         System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
