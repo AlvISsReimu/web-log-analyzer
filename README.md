@@ -6,5 +6,5 @@ Count different browsers' occurrence from 10K user visit log.
 2. Run `hadoop jar <location of jar> com.alviss.hadoop.BrowserCount <log file path> <destination>
 `
 ## Note
-1. The parameter starts from args[0] if run in shell script.
+1. The parameter starts from `args[0]` if run in shell script.
 2. Do not need to delete `META-INF/LICENSE` from jar if using maven to assemble it.
