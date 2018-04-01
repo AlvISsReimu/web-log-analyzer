@@ -1,10 +1,30 @@
 package com.alviss.hadoop;
 
+import com.alviss.util.CharPosUtil;
 import com.kumkee.userAgent.UserAgent;
 import com.kumkee.userAgent.UserAgentParser;
 import org.junit.Test;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class UserAgentTest {
+
+    @Test
+    public void testCharPosUtil() throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("weblog/100_access.log")));
+        String line = reader.readLine();
+        if (line != null && !line.equals("")) {
+            int index = CharPosUtil.getCharPos(line, "\"", 7) + 1;
+            String subStr = line.substring(index);
+            System.out.println(subStr);
+            UserAgentParser userAgentParser = new UserAgentParser();
+            UserAgent userAgent = userAgentParser.parse(subStr);
+            System.out.println(userAgent.getBrowser());
+        }
+    }
 
     @Test
     public void testUserAgentParser() {
