@@ -37,3 +37,6 @@ hs_err_pid*
 # IntelliJ IDEA
 /.idea/
 *.iml
+
+# web log file
+/weblog/
