@@ -2,7 +2,7 @@
 Count different browsers' occurrence from 10K user visit log.
 
 ## How to run
-1. Use `mvn assenbly:assembly` to build jar file
+1. Use `mvn assembly:assembly` to build jar file
 2. Run `hadoop jar <location of jar> com.alviss.hadoop.BrowserCount <log file path> <destination>
 `
 ## Note
